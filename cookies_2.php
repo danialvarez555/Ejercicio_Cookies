@@ -2,7 +2,7 @@
 
 include 'head.php';
 
-define('DURACION_MIN', 1);
+define('DURACION_MIN', 1); //es una constante
 define('DURACION_MAX', 100);
 
 print '<form action="cookies_2.php" method="post">
@@ -15,7 +15,7 @@ print '<form action="cookies_2.php" method="post">
     </li>
     <br>
     <li>Obtener el valor la cookie 
-      <input type="submit" value="modificar" name="obtener" />
+      <input type="submit" value="obtener" name="obtener" />
     </li>
     <br>
     <li>Modificar el valor la cookie 
@@ -31,12 +31,12 @@ print '<form action="cookies_2.php" method="post">
 if (isset($_REQUEST['crear'])) { //ha pulsado el boton crear
 
   $valor = rand(1, 100);
-  setcookie('aleatoria', $valor, time() + 60);
+  setcookie('aleatoria', $valor, time() + 60); //se crea la cookie llamada aleatoria
 }
 if (isset($_REQUEST['obtener'])) { //ha pulsado el boton obtener
 
-  if (isset($_COOKIE['aleatoria']))
-    echo "El valor de la Cookie 'aleatoria' es [" . $_COOKIE['aleatoria'] . "]";
+  if (isset($_COOKIE['aleatoria'])) //si existe la cookie llamada aleatoria
+    echo "El valor de la Cookie 'aleatoria' es [" . $_COOKIE['aleatoria'] . "]"; //te muestra el valor de la cookie
   else
     echo "<h2>No existe la Cookie</h2>";
 }
@@ -52,7 +52,7 @@ if (isset($_REQUEST['modificar'])) { //ha pulsado el boton modificar
 
 if (isset($_REQUEST['destruir'])) { //ha pulsado el boton destruir
   if (isset($_COOKIE['aleatoria'])) //para comprobar que existe
-      setcookie("nombre", "", time() - 1);
+      setcookie("nombre", "", time() - 1); //se pone la cookie con un valor negativo para que se destruya 
       else
          echo "<h2>No existe la Cookie</h2>";
 }

@@ -5,8 +5,8 @@ include 'head.php';
     {
       //Observa que para indicar el tiempo de vida como usamos la función time(), 
       //que devuelve el número de segundos desde el 1 de Enero de 1970.
-     setcookie("usuario", $_POST['nombreForm'], time()+3600);
-     setcookie("dominio", $_POST['dominioForm'], time()+3600);
+     setcookie("usuario", $_REQUEST['nombreForm'], time()+3600);
+     setcookie("dominio", $_REQUEST['dominioForm'], time()+3600);
     }
  
    if($_COOKIE) //si existen cookies
